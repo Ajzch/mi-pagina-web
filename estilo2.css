@@ -1,0 +1,336 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;  
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgb(34, 36, 36);
+    box-shadow: 0 4px 25px -22px black;
+    z-index: 2;
+}
+.logo-gif{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.header-content{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+.Titulo{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Titulo h1{
+    color:rgb(184, 184, 184);
+}
+
+
+.menu{
+    height: 80px;
+}
+
+.menu nav{
+    height: 100%;
+}
+
+.menu nav ul{
+    height: 100%;
+    display: flex;
+    list-style: none;
+}
+
+.menu nav ul li{
+    height: 100%;
+    margin: 0px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 30px;
+}
+
+.menu nav ul li a{
+    color:rgb(184, 184, 184);
+    transition: color 300ms;
+}
+
+.menu nav ul li a:hover{
+    color:rgb(248, 246, 246);
+}
+
+.menu .text-menu-selected{
+    color:white;
+}
+
+.contenedor-de-portada{
+    color: white;
+    width: 100%;
+    min-height: 1200px;
+    height: auto;
+    position: relative;
+    top: 80px;
+    background: url(emprendimientogif.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+}
+
+.ropa {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    gap: 40px 30px;
+    justify-content: center;
+}
+
+.producto {
+    width: 220px;
+    background: transparent;
+    overflow: visible;
+    box-shadow: none;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.producto:hover img {
+    transform: scale(1.05);
+}
+
+.producto p {
+    padding: 10px 2px 0;
+    font-size: 13px;
+    color: white;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+}
+
+
+/* ==========================================================
+   NUEVO: mejoras de tienda. Todo lo de arriba queda igual.
+   ========================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.contenido {
+    width: 100%;
+    max-width: 900px;
+    padding-top: 40px;
+}
+
+/* Portada con título y botón */
+.hero {
+    margin-bottom: 40px;
+    padding: 36px 32px;
+    text-align: center;
+    background-color: rgba(34, 36, 36, 0.88);
+    border-radius: 8px;
+}
+
+.hero h2 {
+    margin-bottom: 10px;
+    font-size: 34px;
+    color: rgb(248, 246, 246);
+}
+
+.hero p {
+    max-width: 520px;
+    margin: 0 auto 22px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(184, 184, 184);
+}
+
+.boton-claro {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(34, 36, 36);
+    background-color: rgb(248, 246, 246);
+    border-radius: 8px;
+    transition: background-color 300ms;
+}
+
+.boton-claro:hover {
+    background-color: rgb(184, 184, 184);
+}
+
+/* Filtros por categoría */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 36px;
+    scroll-margin-top: 100px;
+}
+
+.filtro {
+    padding: 8px 22px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(184, 184, 184);
+    background-color: rgba(34, 36, 36, 0.88);
+    border: 1px solid rgb(90, 93, 93);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: color 300ms, background-color 300ms;
+}
+
+.filtro:hover {
+    color: rgb(248, 246, 246);
+}
+
+.filtro.activo {
+    color: rgb(34, 36, 36);
+    background-color: rgb(248, 246, 246);
+    border-color: rgb(248, 246, 246);
+}
+
+.filtro:focus-visible,
+.consultar:focus-visible,
+.boton-claro:focus-visible {
+    outline: 2px solid rgb(248, 246, 246);
+    outline-offset: 2px;
+}
+
+/* Productos */
+.producto.oculto {
+    display: none;
+}
+
+.producto p {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.producto .precio {
+    padding: 4px 2px 12px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.consultar {
+    margin-top: auto;
+    padding: 9px;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    background-color: rgba(34, 36, 36, 0.88);
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color 300ms, background-color 300ms;
+}
+
+.consultar:hover {
+    color: rgb(34, 36, 36);
+    background-color: rgb(248, 246, 246);
+}
+
+/* Pie de página */
+.pie {
+    margin-top: 70px;
+    padding: 18px;
+    text-align: center;
+    background-color: rgba(34, 36, 36, 0.88);
+    border-radius: 8px;
+}
+
+.pie p {
+    font-size: 13px;
+    color: rgb(184, 184, 184);
+}
+
+.pie a {
+    margin-left: 6px;
+    color: rgb(248, 246, 246);
+    text-decoration: underline;
+}
+
+/* Tablet y celular */
+@media (max-width: 900px) {
+    .ropa {
+        grid-template-columns: repeat(2, 220px);
+    }
+}
+
+@media (max-width: 560px) {
+    .header-content {
+        padding: 0 12px;
+    }
+
+    .Titulo h1 {
+        margin-left: 8px;
+        font-size: 12px;
+    }
+
+    .logo-gif {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+    }
+
+    .menu nav ul li {
+        margin: 0 6px;
+    }
+
+    .menu nav ul li a {
+        font-size: 12px;
+    }
+
+    .hero h2 {
+        font-size: 26px;
+    }
+
+    .ropa {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 14px;
+        padding: 0 14px;
+    }
+
+    .producto {
+        width: 100%;
+    }
+
+    .producto img {
+        height: 200px;
+    }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTÁCTANOS | DIN4MIC SHOESS</title>
+    <link rel="stylesheet" href="estilo2.css">
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+
+    
+    <header style="background-color: rgb(34, 36, 36);">
+
+        <div class="header-content">
+
+            <div class="Titulo">
+                <img src="waos3.gif" alt="Logo" class="logo-gif">
+                <h1>DIN4MIC SHOESS: "tienes el derecho de vestirte bien"</h1>
+            </div>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INICIO</a></li>
+                        <li><a href="contacto.html" class="text-menu-selected">CONTÁCTANOS</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="contenedor-de-portada fondo-contacto">
+
+        <div class="formularios">
+            <h2>CONTÁCTANOS</h2>
+            <p class="intro">Escríbenos tus consultas de tallas, cambios o envíos. Te respondemos en menos de 24 horas.</p>
+
+            <form id="form-contacto">
+                <div class="fila">
+                    <div class="formu">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="given-name" required>
+                    </div>
+                    <div class="formu">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" autocomplete="family-name" required>
+                    </div>
+                </div>
+
+                <div class="formu">
+                    <label for="gmail">Correo electrónico:</label>
+                    <input type="email" id="gmail" name="correo" autocomplete="email" required>
+                </div>
+
+                <div class="fila">
+                    <div class="formu">
+                        <label for="contacto">Número de contacto:</label>
+                        <input type="tel" id="contacto" name="telefono" autocomplete="tel" required>
+                    </div>
+                    <div class="formu">
+                        <label for="dni">DNI:</label>
+                        <input type="text" id="dni" name="dni" inputmode="numeric" maxlength="8" pattern="[0-9]{8}" title="Ingresa los 8 dígitos de tu DNI">
+                    </div>
+                </div>
+
+                <div class="formu">
+                    <label for="direccion">Dirección de envío:</label>
+                    <input type="text" id="direccion" name="direccion" autocomplete="street-address">
+                </div>
+
+                <div class="formu">
+                    <label for="mensaje">Mensaje de tus especificaciones:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                </div>
+
+                <button type="submit">ENVIAR</button>
+            </form>
+        </div>
+
+    </div>
+
+    
+    <div class="aviso" id="aviso" role="status" aria-live="polite">
+        <span class="aviso-icono" aria-hidden="true">&#10003;</span>
+        <div>
+            <strong>Mensaje enviado</strong>
+            <p id="aviso-texto"></p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("form-contacto");
+        const aviso = document.getElementById("aviso");
+        const avisoTexto = document.getElementById("aviso-texto");
+        let temporizador;
+
+        const producto = new URLSearchParams(window.location.search).get("producto");
+        if (producto) {
+            document.getElementById("mensaje").value = "Hola, quisiera consultar por: " + producto + ".";
+        }
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById("nombre").value.trim();
+            avisoTexto.textContent = "Gracias, " + nombre + ". Te responderemos en menos de 24 horas.";
+
+            aviso.classList.add("visible");
+            clearTimeout(temporizador);
+            temporizador = setTimeout(function () {
+                aviso.classList.remove("visible");
+            }, 4000);
+
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
